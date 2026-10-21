@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pendaftaran Pasien - Rumah Sakit Sehat Sejahtera</title>
+        <!-- Menghubungkan file eksternal CSS -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header dengan Gambar/Logo dari Internet -->
+            <div class="header">
+                <img
+                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=150&auto=format&fit=crop&q=80"
+                    alt="Logo Rumah Sakit"
+                />
+                <h1>RS Sehat Sejahtera</h1>
+                <p>Formulir Pendaftaran Pasien Rawat Jalan</p>
+            </div>
+
+            <!-- Form Utama -->
+            <form action="#" method="POST">
+                <!-- Input Teks Biasa -->
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap Pasien</label>
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Masukkan nama sesuai KTP"
+                        required
+                    />
+                </div>
+
+                <!-- Input Tanggal & Nomor Telepon -->
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Lahir</label>
+                    <input type="date" id="tanggal" name="tanggal" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon / WhatsApp</label>
+                    <input
+                        type="tel"
+                        id="telepon"
+                        name="telepon"
+                        placeholder="Contoh: 081234567890"
+                        required
+                    />
+                </div>
+
+                <!-- Radio Button (Pilihan Jenis Kelamin) -->
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="Laki-laki"
+                                required
+                            />
+                            Laki-laki
+                        </label>
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="Perempuan"
+                            />
+                            Perempuan
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Select Dropdown (Pilihan Poli) -->
+                    <div> 
+                        <label for="poli">Pilih Poli</label>
+                        <select id="poli" name="poli" required>
+                            <option value="">-- Pilih Poli --</option>
+                            <option value="Poli Umum">Poli Umum</option>
+                            <option value="Poli Gigi">Poli Gigi</option>
+                            <option value="Poli Anak">Poli Anak</option>
+                            <option value="Poli KIA">Poli KIA</option>
+                        </select>
+                    </div>
+
+                <!-- Textarea (Keluhan) -->
+                    <div class="form-group">
+                        <label for="keluhan">Keluhan / Gejala</label>
+                        <textarea
+                            id="keluhan"
+                            name="keluhan"
+                            placeholder="Tuliskan keluhan atau gejala yang dirasakan"
+                            required
+                    >   </textarea>
+                    </div>
+
+                <!-- Checkbox (Persetujuan) -->
+                    <div class="form-group">
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="persetujuan"
+                                required
+                        />
+                        Saya menyetujui syarat dan ketentuan yang berlaku.
+                        </label>
+                    </div>
+
+                <!-- Tombol Submit -->
+                <button type="submit" class="btn-submit">
+                    Daftar Sekarang
+                </button>
+            </form>
+            <div class="footer">&copy; 2026 Tugas Praktikum</div>
+        </div>
+            <div id="popup-success" class="popup-overlay">
+                <div class="popup-content">
+                    <h3>Registrasi Berhasil!</h3>
+                    <p>Data pendaftaran pasien telah berhasil disimpan ke dalam sistem.</p>
+                    <button id="btn-tutup-popup" class="btn-close-popup">Tutup & Selesai</button>
+                </div>
+            </div>
+        </div>
+            <script>
+
+                const formPendaftaran = document.querySelector('form');
+                const popupSuccess = document.getElementById('popup-success');
+                const btnTutupPopup = document.getElementById('btn-tutup-popup');
+
+                formPendaftaran.addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+                
+                    popupSuccess.style.display = 'flex';
+                });
+
+                btnTutupPopup.addEventListener('click', function() {
+                    popupSuccess.style.display = 'none'; 
+                    formPendaftaran.reset();
+                });
+            </script>
+        </script>
+    </body>
+</html>
